@@ -10,7 +10,7 @@
     <bpmn:sequenceFlow id="Flow_11n4e7u" sourceRef="StartEvent_1" targetRef="Activity_0aqw043" />
     <bpmn:scriptTask id="Activity_0aqw043" name="Prepare transaction">
       <bpmn:extensionElements>
-        <zeebe:script expression="=total * 1.1" resultVariable="totalWithTax" />
+        <zeebe:script expression="=total * 1.2" resultVariable="totalWithTax" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_11n4e7u</bpmn:incoming>
       <bpmn:outgoing>Flow_0ai5epf</bpmn:outgoing>
