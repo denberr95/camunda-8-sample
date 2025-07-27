@@ -1,5 +1,13 @@
 # camunda-8-sample
 
+## System Requirements
+
+- Java 21
+- Maven 3.8.x or above
+- Podman
+- Podman Compose
+- Visual Studio Code (with Java & Spring Boot Extensions)
+
 ## Setup
 
 [Tasks](.vscode/tasks.json)
