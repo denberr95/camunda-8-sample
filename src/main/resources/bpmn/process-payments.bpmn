@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="8429cc4" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="8429cc4" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
   <bpmn:process id="process-payments" name="Process payments" isExecutable="true">
     <bpmn:extensionElements>
       <zeebe:versionTag value="1.0.0" />
@@ -21,12 +21,20 @@
         <zeebe:taskDefinition type="charge-credit-card" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0ai5epf</bpmn:incoming>
-      <bpmn:outgoing>Flow_1yw32kg</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1gypua1</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:endEvent id="Event_0lowfme" name="Payment executed">
-      <bpmn:incoming>Flow_1yw32kg</bpmn:incoming>
+      <bpmn:incoming>Flow_1pz17wv</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_1yw32kg" sourceRef="Activity_1g8de5h" targetRef="Event_0lowfme" />
+    <bpmn:intermediateCatchEvent id="Event_0ckyoz6" name="Wait">
+      <bpmn:incoming>Flow_1gypua1</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pz17wv</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_135ip6m">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT10S</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="Flow_1gypua1" sourceRef="Activity_1g8de5h" targetRef="Event_0ckyoz6" />
+    <bpmn:sequenceFlow id="Flow_1pz17wv" sourceRef="Event_0ckyoz6" targetRef="Event_0lowfme" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process-payments">
@@ -42,10 +50,16 @@
       <bpmndi:BPMNShape id="Activity_0d19hlo_di" bpmnElement="Activity_1g8de5h">
         <dc:Bounds x="430" y="110" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0lowfme_di" bpmnElement="Event_0lowfme">
-        <dc:Bounds x="592" y="132" width="36" height="36" />
+      <bpmndi:BPMNShape id="Event_1yutqy4_di" bpmnElement="Event_0ckyoz6">
+        <dc:Bounds x="622" y="132" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="588" y="175" width="45" height="27" />
+          <dc:Bounds x="631" y="175" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0lowfme_di" bpmnElement="Event_0lowfme">
+        <dc:Bounds x="742" y="132" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="738" y="175" width="45" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_11n4e7u_di" bpmnElement="Flow_11n4e7u">
@@ -56,9 +70,13 @@
         <di:waypoint x="370" y="150" />
         <di:waypoint x="430" y="150" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1yw32kg_di" bpmnElement="Flow_1yw32kg">
+      <bpmndi:BPMNEdge id="Flow_1gypua1_di" bpmnElement="Flow_1gypua1">
         <di:waypoint x="530" y="150" />
-        <di:waypoint x="592" y="150" />
+        <di:waypoint x="622" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pz17wv_di" bpmnElement="Flow_1pz17wv">
+        <di:waypoint x="658" y="150" />
+        <di:waypoint x="742" y="150" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

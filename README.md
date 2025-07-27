@@ -1,26 +1,26 @@
 # camunda-8-sample
 
-## Environment
+## Setup
 
-```bash
-podman machine init --memory 8192 --cpus 8 --now
-cd collections/camunda
-podman compose -f docker-compose.yaml up -d
-podman compose -f docker-compose.yaml down
-```
+[Tasks](.vscode/tasks.json)
+[Launch](.vscode/launch.json)
 
 ## Links
 
-[Compose](https://docs.camunda.io/docs/self-managed/setup/deploy/local/docker-compose)
-[Spring Start](https://docs.camunda.io/docs/guides/getting-started-java-spring)
-[API Tools](https://docs.camunda.io/docs/apis-tools/working-with-apis-tools/)
+- [Camunda 8 Home](https://docs.camunda.io/)
+- [Using Camunda](https://docs.camunda.io/docs/components/)
+- [Getting Started](https://docs.camunda.io/docs/guides/)
+- [Camunda Self Managed](https://docs.camunda.io/docs/self-managed/about-self-managed/)
+- [API Tools](https://docs.camunda.io/docs/apis-tools/working-with-apis-tools/)
+- [Reference](https://docs.camunda.io/docs/reference/)
+- [GitHub](https://github.com/camunda/)
 
-## Access Components
+## Access Components Self Managed
 
-- Component
+- Components
   - user: demo
   - password: demo
-- Idp
+- IdP
   - user: admin
   - password: admin
 
