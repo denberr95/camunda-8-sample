@@ -56,19 +56,19 @@
         {
             "label": "podman-compose-up-camunda-env",
             "type": "shell",
-            "command": "podman compose --file collections/camunda/docker-compose.yaml up --detach",
+            "command": "podman compose --file collections/docker-compose.yaml up --detach",
             "group": "none",
         },
         {
             "label": "podman-compose-down-camunda-env",
             "type": "shell",
-            "command": "podman compose --file collections/camunda/docker-compose.yaml down",
+            "command": "podman compose --file collections/docker-compose.yaml down",
             "group": "none",
         },
         {
             "label": "podman-compose-down-cleandata-camunda-env",
             "type": "shell",
-            "command": "podman compose --file collections/camunda/docker-compose.yaml down --volumes",
+            "command": "podman compose --file collections/docker-compose.yaml down --volumes",
             "group": "none",
         },
         {
