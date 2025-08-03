@@ -12,7 +12,7 @@
                 "shell-create-folders",
                 "podman-compose-up-camunda-env",
                 "mvn-clean",
-                "mvn-package-skip-tests"
+                "mvn-package"
             ]
         },
         {
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "label": "stop-environment-cleandata",
+            "label": "stop-environment-cleanup",
             "type": "shell",
             "group": "test",
             "dependsOrder": "sequence",
@@ -47,7 +47,10 @@
         {
             "label": "shell-create-folders",
             "type": "shell",
-            "command": "mkdir logs",
+            "command": "mkdir -p logs",
+            "windows": {
+                "command": "mkdir logs"
+            },
             "group": "none",
         },
         {
@@ -75,6 +78,18 @@
             "group": "none",
         },
         {
+            "label": "podman-machine-create",
+            "type": "shell",
+            "command": "podman machine init --memory=8192 --cpus=8 --now camunda-machine",
+            "group": "none",
+        },
+        {
+            "label": "podman-machine-remove",
+            "type": "shell",
+            "command": "podman machine rm --force camunda-machine",
+            "group": "none",
+        },
+        {
             "label": "mvn-clean",
             "type": "shell",
             "command": "mvn clean --file pom.xml",
@@ -93,11 +108,11 @@
             "group": "build",
         },
         {
-            "label": "mvn-package-skip-tests",
+            "label": "mvn-package",
             "type": "shell",
-            "command": "mvn package --file pom.xml --define skipTests=true",
+            "command": "mvn package --file pom.xml --define skipTests=${input:skipTests}",
             "windows": {
-                "command": "mvn package --file pom.xml --define skipTests=true"
+                "command": "mvn package --file pom.xml --define skipTests=${input:skipTests}",
             },
             "group": "build",
         },
@@ -129,5 +144,17 @@
                 "shell-create-folders"
             ]
         },
+    ],
+    "inputs": [
+        {
+            "id": "skipTests",
+            "type": "pickString",
+            "options": [
+                "true",
+                "false"
+            ],
+            "default": "true",
+            "description": "Skip tests during Maven build",
+        }
     ]
 }

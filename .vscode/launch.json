@@ -6,23 +6,23 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Camunda 8 Process Payments Keep Data",
+            "name": "Process Payments - default",
             "request": "launch",
             "mainClass": "com.camunda.demo.process.payments.ProcessPaymentsApplication",
             "projectName": "process.payments",
-            "vmArgs": "",
+            "vmArgs": "-Dspring.profiles.active=default",
             "preLaunchTask": "start-environment",
             "postDebugTask": "stop-environment"
         },
         {
             "type": "java",
-            "name": "Camunda 8 Process Payments Cleanup Data",
+            "name": "Process Payments Cleanup - default",
             "request": "launch",
             "mainClass": "com.camunda.demo.process.payments.ProcessPaymentsApplication",
             "projectName": "process.payments",
-            "vmArgs": "",
+            "vmArgs": "-Dspring.profiles.active=default",
             "preLaunchTask": "start-environment",
-            "postDebugTask": "stop-environment-cleandata"
+            "postDebugTask": "stop-environment-cleanup"
         }
     ]
 }

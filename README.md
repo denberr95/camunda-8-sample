@@ -22,6 +22,7 @@
 - [API Tools](https://docs.camunda.io/docs/apis-tools/working-with-apis-tools/)
 - [Reference](https://docs.camunda.io/docs/reference/)
 - [GitHub](https://github.com/camunda/)
+- [Camunda Platform Get Started](https://github.com/camunda/camunda-platform-get-started)
 
 ## Access Components Self Managed
 
