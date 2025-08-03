@@ -409,6 +409,7 @@ services:
       interval: 30s
     networks:
       - web-modeler
+      - camunda-platform #Required for zeebe to be able to send emails
 
   web-modeler-restapi:
     container_name: web-modeler-restapi
