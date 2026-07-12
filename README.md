@@ -2,7 +2,7 @@
 
 ## System Requirements
 
-- Java 25
+- Java 21
 - Maven 3.8.x or above
 - Podman
 - Podman Compose
