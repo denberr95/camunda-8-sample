@@ -2,7 +2,7 @@
 
 ## System Requirements
 
-- Java 21
+- Java 25
 - Maven 3.8.x or above
 - Podman
 - Podman Compose
@@ -23,6 +23,7 @@
 - [Reference](https://docs.camunda.io/docs/reference/)
 - [GitHub](https://github.com/camunda/)
 - [Camunda Platform Get Started](https://github.com/camunda/camunda-platform-get-started)
+- [Camunda Compose Officiale](https://github.com/camunda/camunda-distributions/tree/main/docker-compose)
 
 ## Access Components Self Managed
 
