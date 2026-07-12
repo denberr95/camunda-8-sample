@@ -11,7 +11,6 @@
 ## Setup
 
 [Tasks](.vscode/tasks.json)
-[Launch](.vscode/launch.json)
 
 ## Links
 
@@ -23,7 +22,8 @@
 - [Reference](https://docs.camunda.io/docs/reference/)
 - [GitHub](https://github.com/camunda/)
 - [Camunda Platform Get Started](https://github.com/camunda/camunda-platform-get-started)
-- [Camunda Compose Officiale](https://github.com/camunda/camunda-distributions/tree/main/docker-compose)
+- [Camunda Compose Official](https://github.com/camunda/camunda-distributions/tree/main/docker-compose)
+- [Camunda Compose Configuration](https://docs.camunda.io/docs/self-managed/quickstart/developer-quickstart/docker-compose/configuration/)
 
 ## Access Components Self Managed
 
@@ -34,11 +34,23 @@
   - user: admin
   - password: admin
 
-- Operate: <http://localhost:8081>
-- Tasklist: <http://localhost:8082>
+### Orchestration Cluster
+
+- Operate: <http://localhost:8080>
+- Tasklist: <http://localhost:8080>
+- Orchestration Cluster Admin: <http://localhost:8080/admin>
+- Orchestration Cluster REST API: <http://localhost:8080/v2>
+- Orchestration Cluster gRPC API: localhost:26500
+
+### Management and modeling components
+
+- Console: <http://localhost:8087>
 - Optimize: <http://localhost:8083>
-- Identity: <http://localhost:8084>
+- Management Identity: <http://localhost:8084>
 - Web Modeler <http://localhost:8070>
+
+### External dependencies
+
 - Elasticsearch: <http://localhost:9200>
 - Keycloak: <http://localhost:18080/auth/>
-- Mailpit's Web UI: <http://localhost:8075>
+- PostgreSQL: localhost:5432
